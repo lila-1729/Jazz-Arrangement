@@ -41,8 +41,8 @@ melodyOne = \new Voice \relative c' {
 	g2 r8 e8 fis g~ | g2 r4. g8~ | 
 		g8 a8~ a4 r4 r8 fis8 | g2 r2 | r2 r8 e8 f g | }
       	\volta 2 { c4 r4 r4 r8 c8~ | c8 d8~ d4 r4 r8 b8 | bes4 r4 r4 r8
-	bes8 | a4 r4 r8 g8 f8 e8~ | e2 r2 |
-		r8 d8 c'4 r4 r8 b8 | c1 | r2 e,4 f |}
+	bes8 | a4 r4 r8 g8 f8 e8~ | e2 r4 r8 d8~ |
+		d4 c'2  r8 b8 | c2 r2 | r2 r8 e,8 f g |}
     }
   }
 }
