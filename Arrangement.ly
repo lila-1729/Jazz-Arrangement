@@ -2,73 +2,124 @@ global= {
   \time 4/4
   \key c \major
   \version "2.24.4"
+  \set Score.voltaSpannerDuration = #(ly:make-moment 1)
 }
 
 \header {
-  title = "I COULD WRITE A BOOK"
+  title = "I Could Write a Book"
   composer = "Rodgers"
   tagline = "@ 2025"
 }
 
-% Basis Melody
-%
-%melodyOne = \new Voice \relative c' {
-%  \partial 2 e8 f4 g8~ |
-%
-%  \repeat volta 2 {
-%    	\set Score.voltaSpannerDuration = #(ly:make-moment 1)
-%  	g4 r4 b2 | a4 g e d | 
-%  	e1~ | e4 g e d | e g e d | e c'2 e,4 | g1~ | g2 a4 b |
-%    	\alternative {
-%      	\volta 1 { c2 c | c4 d2 b4 | a2 a | g e4 fis | g2 g | 
-%		g4 a2 fis4 | g1~ | g4 r4 e f | }
-%      	\volta 2 { c'2 c | c4 d2 b4 | bes2 bes | a g4 f | e2 e |
-%		d4 c'2 b4 | c1 | r2 e,4 f |}
-%    }
-%  }
-%}
 
 melodyOne = \new Voice \relative c' {
+
+  % Upbeat
   \partial 2 r8 e8 f8 g8~ |
 
-  \repeat volta 2 {
-    	\set Score.voltaSpannerDuration = #(ly:make-moment 1)
-  	g4 r4 r8 b8 ais b | a8 g4 r8 r8 e8 d e8~| 
-  	e2 r4 r8 dis8 | e8 g r8 g4 e8 d8 e~ | e8 g4 e d e8 | r8 e c'4~ c8 cis8
-	r8 e,8 | g2 r4 r8 fis8 | g4 r4 r8 a8 b c~ |
-    	\alternative {
-      	\volta 1 { c4 r4 r4 r8 c8~  | c8 d4 r8 r8 d8 b8 a~ | a2 r4. a8 |
-	g2 r8 e8 fis g~ | g2 r4. g8~ | 
-		g8 a8~ a4 r4 r8 fis8 | g2 r2 | r2 r8 e8 f g | }
-      	\volta 2 { c4 r4 r4 r8 c8~ | c8 d8~ d4 r4 r8 b8 | bes4 r4 r4 r8
-	bes8 | a4 r4 r8 g8 f8 e8~ | e2 r4 r8 d8~ |
-		d4 c'2  r8 b8 | c2 r2 | r2 r8 e,8 f g |}
-    }
-  }
+  % A Teil (aa)
+  \sectionLabel \markup { \rounded-box \line { A } }
+  \section
+  g4 r4 r8 c8 b c | a8 g4. r8 e8 d e8~| 
+  e4 r4 r8 dis8~ \accent dis e8~ | e8 g8 r4 r8  d8 dis e~ |
+  e4 r4  r8 g8 e d | e8 c'4. r8 dis,8 e g~ |
+  g4 r4 r8 fis8~ \accent fis a~ | a8 g r4 r8 a8 c b | \break
+
+  % B Teil (bb)
+  \sectionLabel \markup { \rounded-box \line { B } }
+  \section
+  d8 c4. r4 r8 c8~  | c8 d4.  r8  b8 a b | 
+  a8 a4. r8 es8~ \accent es d8~ | d8 g8 r4 r8 e!8 fis b | 
+  a8 g4. r4 r8 g8~ | g8 a4.  r8 e g fis8 | a8 a4. r8 a8~ \accent a8 b~ |
+  b8 g8 r4 r8 e8 f g~ |  \break
+
+  % A Teil (aa)
+  \sectionLabel \markup { \rounded-box \line { A } }
+  \section
+  g4 r4 r8 c8 b c | a8 g4. r8 e8 d e8~| 
+  e4 r4 r8 dis8~ \accent dis e8~ | e8 g8 r4 r8  d8 dis e~ |
+  e4 r4  r8 g8 e d | e8 c'4. r8 dis,8 e g~ |
+  g4 r4 r8 fis8~ \accent fis a~ | a8 g r4 r8 a8 c b~ | \break
+
+  % C Teil (cc)
+  \sectionLabel \markup { \rounded-box \line { C } }
+  \section
+  b8 c4. r8 gis c8 d8~ |  d8 c8 r4  r8 f8 d b8~ | 
+  b8 bes4. r4 r8 bes8~ \accent | bes a4. r8 g8 g8 f8~ | 
+  f8 e4. r8 e g e~ | e8 d r4 r8 c' d b~ | 
+  b c4. r4 r8 g~ \accent | g8 f4. r8 e8 f g | \break
+
+  % Solo
+  \sectionLabel \markup { \rounded-box \line { Solo } }
+  \section
+
+  c1
+
+  \break
+
+  % Blocksatz
+  \sectionLabel \markup { \rounded-box \line { Blocksatz } }
+  \section
+
+  c1
+
+  \bar "|."
+
+  
 }
 
 melodyTwo = \new Voice \relative c' {
+	r2 r8 b' g b~ b 
 }
 
 bass = \new Voice \relative c {
   \clef bass
+
+  % Upbeat
   \partial 2 r2 | 
-  c4 g a cis | d fis, g b | c c, c' b | c fis, g b | c e, g d'| c b cis a | 
-  d a d, fis | g a g d | e g es c | d f g d | a' c d fis, | g a b dis |
-  e g, e gis |  % Hier V-I 
-  a cis d a | d, a' d as |  g a ais b |
-  a b a gis | a b a f | g b c e, | f e f bes | c b a g | d f g b | c2 c4 a |
-  d f, g  g |
+
+  % A Teil 
+  \section
+  c4 g a c | d f, g b | c e c b | c fis, g b | 
+  c e g g,| c b cis a | d a f a | g b f' d |
+
+  % B Teil
+  \section
+  e c es c | d f g g, | a c d fis, | g a b dis | 
+  e g, e gis | a c d a | d e f d |  g a ais b |
+
+  % A Teil
+  \section
+  c4 g a c | d f, g b | c e c' b | c fis, g b | 
+  c e, g d'| c b cis a | d a d, fis | g a g d |
+
+  % C Teil
+  \section
+  a b a gis | a b a f | g b c e, | f e f bes | 
+  c b a g | d f g b | c2 c4 a | d f, g  g |
+
+  \section
 }
 
 chordProgression = \chordmode {
    \set noChordSymbol = ""
-   r2 | c2:maj7 a:m7 | d:m7 g:7 | c1:maj7 | r2 g2:7 | c:maj7 g:7 | c:maj7
+
+   % Upbeat
+   \partial 2 r2 |  
+
+   % A Teil (aa)
+   c2:maj7 a:m7 | d:m7 g:7 | c1:maj7 | c2:maj7 g2:7 | c:maj7 g:7 | c:maj7
    cis:m7-.5- | d1:m7 | g1:7 |
 
+   % B Teil (bb)
    c2/e as:7/es | d:m7 g:7 | a:m7  d:7.9- | g:7+ b:7 | e1:m | a2:m7 d:7 |
    d1:m7 | g:7 |
 
+   % A Teil (aa)
+   c2:maj7 a:m7 | d:m7 g:7 | c1:maj7 | r2 g2:7 | c:maj7 g:7 | c:maj7
+   cis:m7-.5- | d1:m7 | g1:7 |
+
+   % C Teil (cc)
    a2:m a:m7+ | a:m a:m6 | g:m7 c:7 | f:7+ f4:m7 bes:7 | c2:7+ a:7 |
    d2.:m7 g4:7 | c1:6 | d2:m7 g:7|
 }
@@ -76,6 +127,7 @@ chordProgression = \chordmode {
 \score {
   \new StaffGroup <<
     \new ChordNames \chordProgression
+    \new ChordGrid \chordProgression
     \new Staff \with { instrumentName = "Flute " }
     << \global \melodyOne >>
     \new Staff \with { instrumentName = "" }
