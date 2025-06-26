@@ -258,7 +258,7 @@ chordProgression = \chordmode {
 
 \score {
   \new StaffGroup <<
-    %\new ChordNames \chordProgression
+    \new ChordNames \chordProgression
     \new Voice = "melSimple" \melodyOne
     \new Lyrics \lyricsto melSimple \text
     \new Staff \with { instrumentName = "Piano " }
